@@ -69,7 +69,7 @@ const FormScreen = props => {
         style={styles.buttonSetting}
         onPress={() => props.navigation.navigate('After')}>
         <Icon type="Entypo" name="check" style={base.fontSettings} />
-        <Text>Submit</Text>
+        <Text style={styles.whiteBoldText}>Submit</Text>
       </Button>
     </View>
   );

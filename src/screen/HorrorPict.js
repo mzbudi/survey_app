@@ -1,17 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, StyleSheet, ImageBackground } from 'react-native';
 // import { Button, Text } from 'native-base';
+const Sound = require('react-native-sound');
 
-const HorrorPict = () => {
-  return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={require('../public/assets/ghost.jpg')}
-        style={styles.image}
-      />
-    </View>
-  );
-};
+class HorrorPict extends Component {
+  componentDidMount() {
+    const sound = new Sound('scream.mp3', Sound.MAIN_BUNDLE, error => {
+      if (error) {
+        return;
+      }
+      sound.play();
+    });
+    // The play dispatcher
+    sound
+      .setVolume(1)
+      .setPan(1)
+      .play();
+  }
+  render() {
+    return (
+      <View style={styles.container}>
+        <ImageBackground
+          source={require('../public/assets/ghost.jpg')}
+          style={styles.image}
+        />
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {

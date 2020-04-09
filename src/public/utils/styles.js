@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
     margin: 16,
     justifyContent: 'flex-start'
   },
-  bold: { fontWeight: 'bold' }
+  bold: { fontWeight: 'bold' },
+  whiteBoldText: { color: 'white', fontWeight: 'bold' }
 });
 
 export default styles;

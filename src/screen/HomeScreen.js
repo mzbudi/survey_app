@@ -35,8 +35,13 @@ const HomeScreen = props => {
           onPress={() => {
             props.navigation.navigate('Menu');
           }}>
-          <Icon type="Entypo" name="book" size={20} />
-          <Text>Mulai Survey</Text>
+          <Icon
+            type="Entypo"
+            name="book"
+            size={20}
+            style={styles.whiteBoldText}
+          />
+          <Text style={styles.whiteBoldText}>Mulai Survey</Text>
         </Button>
       </View>
     </ImageBackground>

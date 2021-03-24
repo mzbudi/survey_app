@@ -9,6 +9,7 @@ import HomeScreen from './src/screen/HomeScreen';
 import DisclaimerScreen from './src/screen/DisclaimerScreen';
 import FormScreen from './src/screen/FormScreen';
 import HorrorPict from './src/screen/HorrorPict';
+import Charity from './src/screen/Charity';
 
 const Stack = createStackNavigator();
 const Bottom = createBottomTabNavigator();
@@ -37,6 +38,16 @@ const MenuScreen = () => {
         component={FormScreen}
         options={{
           tabBarLabel: 'Form',
+          tabBarIcon: () => (
+            <Icon type="AntDesign" name="profile" style={base.fontSettings} />
+          )
+        }}
+      />
+      <Bottom.Screen
+        name="Charity"
+        component={Charity}
+        options={{
+          tabBarLabel: 'Charity',
           tabBarIcon: () => (
             <Icon type="AntDesign" name="profile" style={base.fontSettings} />
           )

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { View, ToastAndroid } from 'react-native';
 import { Icon, Text, Form, Item, Input, Button, Picker } from 'native-base';
 import base from '../public/utils/baseStyles';
 import styles from '../public/utils/styles';
@@ -13,7 +13,16 @@ const FormScreen = props => {
   const [name, setName] = useState('');
   const [old, setOld] = useState('');
   const [job, setJob] = useState('');
-  const [selectedPicker, setSelected] = useState(2);
+  const [selectedPicker, setSelected] = useState('0');
+
+  const submitData = () => {
+    if (name && old && job && selectedPicker !== '0') {
+      props.navigation.navigate('After');
+      // ToastAndroid.show(name, ToastAndroid.SHORT);
+    } else {
+      ToastAndroid.show('Data Harus diisi Lengkap', ToastAndroid.SHORT);
+    }
+  };
 
   return (
     <View style={styles.formFlexer}>
@@ -67,7 +76,9 @@ const FormScreen = props => {
         iconLeft
         success
         style={styles.buttonSetting}
-        onPress={() => props.navigation.navigate('After')}>
+        onPress={() => {
+          submitData();
+        }}>
         <Icon type="Entypo" name="check" style={base.fontSettings} />
         <Text style={styles.whiteBoldText}>Submit</Text>
       </Button>
